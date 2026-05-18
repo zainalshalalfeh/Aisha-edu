@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Aisha Edu | منصة الكتب الأردنية الذكية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loader" style="position:fixed; inset:0; background:#1e3a6b; z-index:9999; display:flex; align-items:center; justify-content:center; flex-direction:column; opacity:1;">
+  <i class="fas fa-crown" style="font-size: 80px; color: #f4c542;"></i>
+  <div style="width:260px; height:5px; background:#3a5a4e; margin-top:30px;"><div style="width:100%; height:100%; background:#f4c542;"></div></div>
+  <p style="color:white; margin-top:20px; font-size:1.4rem;">Aisha Edu | منصة الكتب الأردنية الذكية</p>
+</div>
+
+<button class="access-main-btn" id="accessMainBtn"><i class="fas fa-universal-access"></i></button>
+<div class="access-panel" id="accessPanel">
+  <button id="contrastBtn"><i class="fas fa-adjust"></i> الوضع الليلي (تباين)</button>
+  <button id="increaseFont"><i class="fas fa-text-height"></i> تكبير الخط</button>
+  <button id="decreaseFont"><i class="fas fa-text-height"></i> تصغير الخط</button>
+  <button id="resetFont"><i class="fas fa-undo-alt"></i> الخط الطبيعي</button>
+</div>
+
+<nav class="glass-nav">
+  <div class="logo-area" onclick="showPage('home')">
+    <div class="logo-icon">
+      <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#1e3a6b"/><text x="50" y="67" font-size="50" text-anchor="middle" fill="#f4c542" font-weight="bold">A</text></svg>
+    </div>
+    <span class="logo-text">Aisha Edu</span>
+  </div>
+  <div>
+    <button class="nav-link" onclick="showPage('home')">الرئيسية</button>
+    <button class="nav-link" onclick="showPage('about')">من نحن</button>
+    <button class="nav-link" onclick="showPage('grades')">الصفوف</button>
+    <button class="nav-link" onclick="showPage('it')">Aisha Tech</button>
+    <button class="nav-link" onclick="showPage('games')">ألعاب وتحديات</button>
+    <button class="nav-link" onclick="showPage('contact')">اتصل بنا</button>
+  </div>
+</nav>
+
+<!-- الصفحة الرئيسية -->
+<div id="page-home" class="page">
+  <section class="hero">
+    <div class="hero-content">
+      <div>
+        <div style="background:rgba(30,58,107,0.15); display:inline-block; padding:5px 18px; border-radius:40px; font-weight:bold;">🇯🇴 المنهاج الأردني 2026</div>
+        <h1 style="margin-top:25px; font-size:3rem;">مستقبل التعليم <span style="color:#f4c542;">بين يديك</span></h1>
+        <p style="margin:20px 0; font-size:1.2rem;">جميع كتب الصفوف من الأول حتى التوجيهي، فصل أول وثاني، مع أوراق عمل، قنوات تعليمية، وألعاب ذكاء متطورة.</p>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+          <button class="btn-primary" onclick="showPage('grades')">📚 استكشف الكتب</button>
+          <button class="btn-outline" onclick="showPage('games')">🎮 تحدى نفسك</button>
+          <button class="btn-outline" onclick="openChat()">💬 اسأل AishaBot</button>
+        </div>
+        <div class="stats-container">
+          <div class="stat-box"><i class="fas fa-book-open" style="font-size: 2rem; color: #f4c542;"></i><div class="stat-number">+280</div><div class="stat-label">كتاب رقمي</div></div>
+          <div class="stat-box"><i class="fas fa-chalkboard-user" style="font-size: 2rem; color: #f4c542;"></i><div class="stat-number">12</div><div class="stat-label">صفاً دراسياً</div></div>
+          <div class="stat-box"><i class="fas fa-users" style="font-size: 2rem; color: #f4c542;"></i><div class="stat-number">+50k</div><div class="stat-label">طالباً ومعلمًا</div></div>
+          <div class="stat-box"><i class="fas fa-gamepad" style="font-size: 2rem; color: #f4c542;"></i><div class="stat-number">22</div><div class="stat-label">لعبة تعليمية</div></div>
+        </div>
+      </div>
+      <div class="grid-responsive" style="grid-template-columns:1fr 1fr; gap:20px;">
+        <div class="grade-card" onclick="showPage('grades')"><i class="fas fa-graduation-cap" style="font-size:48px;"></i><h3>جميع الصفوف</h3><p>من الأول إلى التوجيهي</p></div>
+        <div class="grade-card" onclick="openChat()"><i class="fas fa-robot" style="font-size:48px;"></i><h3>AishaBot الذكي</h3><p>اسأل عن أي كتاب</p></div>
+        <div class="grade-card" onclick="openVoice()"><i class="fas fa-microphone-alt" style="font-size:48px;"></i><h3>المساعد الصوتي</h3><p>تكلم وستجد الكتاب</p></div>
+        <div class="grade-card" onclick="showPage('it')"><i class="fas fa-laptop-code" style="font-size:48px;"></i><h3>Aisha Tech</h3><p>موارد رقمية قوية</p></div>
+      </div>
+    </div>
+  </section>
+  <div class="grid-responsive" style="max-width:1000px;">
+    <div class="video-wrapper">
+    </div>
+  </div>
+  <footer><p>© 2026 Aisha Edu – جميع الحقوق محفوظة</p></footer>
+</div>
+
+<!-- من نحن -->
+<div id="page-about" class="page">
+  <div style="background: linear-gradient(115deg, #1e3a6b, #0f2a4a); padding: 120px 24px 60px; text-align:center;">
+    <button class="btn-outline" style="background:white; color:#1e3a6b;" onclick="showPage('home')">← الرئيسية</button>
+    <h1 style="color:white; margin-top:20px;">من نحن</h1>
+  </div>
+  <div class="grid-responsive" style="grid-template-columns:1fr;">
+    <div class="contact-card" style="cursor:default;">
+      <i class="fas fa-school" style="font-size:48px; color:#f4c542;"></i>
+      <h3>مدرسة عائشة أم المؤمنين الثانوية الشاملة المختلطة</h3>
+      <p style="margin:15px 0; font-size:1.1rem;">لواء سحاب – تأسست عام 2006 م</p>
+      <p>منصة Aisha Edu هي مبادرة رقمية تهدف إلى توفير جميع الكتب المدرسية الأردنية بصيغة PDF، مع أوراق عمل تفاعلية، قنوات تعليمية على يوتيوب، وألعاب ذكاء متنوعة. تم تطوير المنصة لدعم الطلاب والمعلمين وأولياء الأمور، وتسعى إلى تسهيل الوصول إلى المحتوى التعليمي الرسمي من المركز الوطني لتطوير المناهج (NCCD). الموقع يقدم أيضاً خدمات متقدمة مثل البحث الصوتي والمساعد الذكي لإثراء التجربة التعليمية.</p>
+      <p style="margin-top:20px;"><i class="fas fa-map-marker-alt"></i> <strong>الموقع:</strong> لواء سحاب، محافظة عمان، الأردن</p>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.1234567890123!2d35.991913!3d31.870234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDUyJzEyLjgiTiAzNcKwNTknMzAuOSJF!5e0!3m2!1sen!2sjo!4v1620000000000!5m2!1sen!2sjo" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+  <footer><p>© 2026 Aisha Edu – تعليم بلا حدود</p></footer>
+</div>
+
+<!-- الصفوف -->
+<div id="page-grades" class="page">
+  <div style="background: linear-gradient(115deg, #1e3a6b, #0f2a4a); padding: 120px 24px 60px; text-align:center;">
+    <button class="btn-outline" style="background:white; color:#1e3a6b;" onclick="showPage('home')">← الرئيسية</button>
+    <h1 style="color:white; margin-top:20px;">📚 اختر الصف الدراسي</h1>
+  </div>
+  <div class="grid-responsive" id="allGradesContainer"></div>
+</div>
+
+<div id="page-grade-detail" class="page">
+  <div style="background:#0f2a4a; padding:120px 24px 40px; text-align:center;">
+    <button class="btn-outline" style="background:white;" onclick="showPage('grades')">← قائمة الصفوف</button>
+    <h1 id="gradeDetailTitle" style="color:white; margin-top:12px;">اختر المادة والفصل</h1>
+  </div>
+  <div class="tabs-container">
+    <button class="tab-btn active" data-tab="booksPane">📘 الكتب (فصل أول + ثاني)</button>
+    <button class="tab-btn" data-tab="worksheetsPane">📝 أوراق عمل تفاعلية</button>
+    <button class="tab-btn" data-tab="channelsPane">🎥 قنوات يوتيوب تعليمية</button>
+  </div>
+  <div id="booksPane" class="tab-pane active"><div class="grid-responsive" id="gradeBooksGrid"></div></div>
+  <div id="worksheetsPane" class="tab-pane"><div class="grid-responsive" id="gradeWorksheetsGrid"></div></div>
+  <div id="channelsPane" class="tab-pane"><div class="grid-responsive" id="gradeChannelsGrid"></div></div>
+</div>
+
+<div id="page-it" class="page">
+  <div style="background:#0f2a4a; padding:120px 20px 50px; text-align:center;">
+    <button class="btn-outline" style="background:white;" onclick="showPage('home')">← الرئيسية</button>
+    <h1 style="color:#f7e7b4;">💡 Aisha Tech | موارد تكنولوجيا المعلومات</h1>
+  </div>
+  <div class="grid-responsive" id="itFullGrid"></div>
+</div>
+
+<div id="page-games" class="page">
+  <div style="background:#d9b44a; padding:120px 20px 40px; text-align:center;">
+    <button class="btn-outline" style="background:#1e6f5c; color:white;" onclick="showPage('home')">← الرئيسية</button>
+    <h1 style="color:#1f3a2f;">🎮 ألعاب وتحديات ذكاء وتركيز</h1>
+  </div>
+  <div class="grid-responsive" id="gamesGrid"></div>
+  <div id="gameMsg" style="max-width:700px; margin:30px auto; background:#fff6e0; border-radius:40px; padding:20px; text-align:center; font-weight:bold;">🏆 اختر لعبة واستمتع بتجارب تعليمية ممتعة</div>
+</div>
+
+<div id="page-contact" class="page">
+  <div style="background:#1e3a6b; padding:120px 20px 50px; text-align:center;">
+    <button class="btn-outline" style="background:white;" onclick="showPage('home')">← الرئيسية</button>
+    <h1 style="color:#f7e7b4;">📧 تواصل معنا</h1>
+    <p style="color:white; margin-top:10px;">نرحب بملاحظاتكم واستفساراتكم – رسالتكم تصل إلينا مباشرة بخصوصية تامة</p>
+  </div>
+  <div class="grid-responsive" style="grid-template-columns:1fr 1fr; gap:40px;">
+    <div class="contact-card" style="cursor:default;">
+      <i class="fas fa-envelope" style="font-size:48px; color:#f4c542;"></i>
+      <h3>أرسل ملاحظة أو استفسار</h3>
+      <form id="secureContactForm" class="contact-form">
+        <input type="text" id="contactName" placeholder="الاسم الكامل" required>
+        <input type="email" id="contactEmail" placeholder="بريدك الإلكتروني" required>
+        <textarea rows="4" id="contactMessage" placeholder="رسالتك..." required></textarea>
+        <button type="submit" class="btn-primary" style="width:100%;">📨 إرسال الرسالة</button>
+      </form>
+      <p class="extra-link" style="margin-top:15px; font-size:0.8rem;">لن يتم عرض بريدنا الإلكتروني علناً، رسالتك تصل إلينا عبر البريد الآمن.</p>
+    </div>
+    <div class="contact-card" style="cursor:default;">
+      <i class="fab fa-facebook" style="font-size:48px; color:#f4c542;"></i>
+      <h3>صفحتنا الرسمية</h3>
+      <p>تابعونا على فيسبوك للحصول على آخر المستجدات والفعاليات:</p>
+      <button class="btn-primary" style="margin-top:20px;" onclick="window.open('https://www.facebook.com/people/%D9%85%D8%AF%D8%B1%D8%B3%D8%A9-%D8%B9%D8%A7%D8%A6%D8%B4%D8%A9-%D8%A3%D9%85-%D8%A7%D9%84%D9%85%D8%A4%D9%85%D9%86%D9%8A%D9%86-%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%88%D9%8A%D8%A9-%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%AE%D8%AA%D9%84%D8%B7%D8%A9-%D9%84%D9%88%D8%A7%D8%A1-%D8%B3%D8%AD%D8%A7%D8%A8/100057617641633/','_blank')">📘 زيارة الصفحة</button>
+    </div>
+  </div>
+  <footer><p>© 2026 Aisha Edu – تواصل معنا بخصوصية وأمان</p></footer>
+</div>
+
+<button class="chat-fab" onclick="openChat()"><i class="fas fa-comment-dots"></i></button>
+<button class="voice-fab" onclick="openVoice()"><i class="fas fa-microphone-alt"></i></button>
+
+<!-- الشات بوت بحجم أصغر -->
+<div id="chatWindow" class="chat-window">
+  <div style="background:var(--primary); padding:16px; display:flex; justify-content:space-between; color:white;">
+    <span><i class="fas fa-robot"></i> AishaBot الذكي</span>
+    <button onclick="closeChat()" style="background:none; border:none; color:white; font-size:24px;">✕</button>
+  </div>
+  <div id="chatMessagesArea" style="height:280px; overflow-y:auto; padding:16px; background:#fefcf5;"></div>
+  <div style="display:flex; gap:10px; padding:14px; background:white;">
+    <input id="chatInputField" placeholder="اسأل عن كتاب، مادة، صف..." style="flex:1; padding:12px; border-radius:50px;">
+    <button onclick="sendChatMsg()" style="background:#f4c542; border:none; border-radius:40px; padding:0 20px;">إرسال</button>
+  </div>
+</div>
+
+<div id="voiceWindow" class="voice-window">
+  <h4><i class="fas fa-microphone"></i> المساعد الصوتي</h4>
+  <p>قل: "كتاب الرياضيات الصف السادس الفصل الثاني"</p>
+  <button id="voiceStartBtn" class="btn-primary" style="background:#f4c542;">🎙️ اضغط وتحدث</button>
+  <div id="voiceFeedback" style="margin-top:16px; background:#f4efdf; padding:12px; border-radius:24px;"></div>
+  <button onclick="closeVoice()" style="background:#ccc; border:none; margin-top:12px; padding:6px 16px;">إغلاق</button>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
